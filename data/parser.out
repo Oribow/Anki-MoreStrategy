@@ -1,0 +1,699 @@
+Created by PLY version 3.10 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> statement
+Rule 1     statement -> expression join statement
+Rule 2     statement -> LPAREN statement RPAREN
+Rule 3     statement -> expression
+Rule 4     expression -> exist_comp attribute
+Rule 5     expression -> ATTR_CLASS equal_comp CLASS
+Rule 6     expression -> ATTR_RANK num_comp RANK
+Rule 7     expression -> num_attribute num_comp NUMBER
+Rule 8     expression -> str_attribute str_comp STRING
+Rule 9     attribute -> num_attribute
+Rule 10    attribute -> str_attribute
+Rule 11    attribute -> enum_attribute
+Rule 12    enum_attribute -> ATTR_CLASS
+Rule 13    enum_attribute -> ATTR_RANK
+Rule 14    num_attribute -> ATTR_VALUE
+Rule 15    str_attribute -> ATTR_NAME
+Rule 16    str_attribute -> ATTR_DESCRIPTION
+Rule 17    equal_comp -> EQUAL
+Rule 18    equal_comp -> N_EQUAL
+Rule 19    num_comp -> equal_comp
+Rule 20    num_comp -> LESSER
+Rule 21    num_comp -> GREATER
+Rule 22    num_comp -> EQ_GREATER
+Rule 23    num_comp -> EQ_LESSER
+Rule 24    str_comp -> STARTS_WITH
+Rule 25    str_comp -> ENDS_WITH
+Rule 26    str_comp -> CONTAINS
+Rule 27    exist_comp -> HAS
+Rule 28    exist_comp -> HAS_NOT
+Rule 29    join -> J_AND
+Rule 30    join -> J_OR
+Rule 31    join -> J_N_EQUALS
+Rule 32    join -> J_IMPLIES
+Rule 33    join -> J_EQUALS
+
+Terminals, with rules where they appear
+
+ATTR_CLASS           : 5 12
+ATTR_DESCRIPTION     : 16
+ATTR_NAME            : 15
+ATTR_RANK            : 6 13
+ATTR_VALUE           : 14
+CLASS                : 5
+CONTAINS             : 26
+ENDS_WITH            : 25
+EQUAL                : 17
+EQ_GREATER           : 22
+EQ_LESSER            : 23
+GREATER              : 21
+HAS                  : 27
+HAS_NOT              : 28
+J_AND                : 29
+J_EQUALS             : 33
+J_IMPLIES            : 32
+J_N_EQUALS           : 31
+J_OR                 : 30
+LESSER               : 20
+LPAREN               : 2
+NUMBER               : 7
+N_EQUAL              : 18
+RANK                 : 6
+RPAREN               : 2
+STARTS_WITH          : 24
+STRING               : 8
+error                : 
+
+Nonterminals, with rules where they appear
+
+attribute            : 4
+enum_attribute       : 11
+equal_comp           : 5 19
+exist_comp           : 4
+expression           : 1 3
+join                 : 1
+num_attribute        : 7 9
+num_comp             : 6 7
+statement            : 1 2 0
+str_attribute        : 8 10
+str_comp             : 8
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statement
+    (1) statement -> . expression join statement
+    (2) statement -> . LPAREN statement RPAREN
+    (3) statement -> . expression
+    (4) expression -> . exist_comp attribute
+    (5) expression -> . ATTR_CLASS equal_comp CLASS
+    (6) expression -> . ATTR_RANK num_comp RANK
+    (7) expression -> . num_attribute num_comp NUMBER
+    (8) expression -> . str_attribute str_comp STRING
+    (27) exist_comp -> . HAS
+    (28) exist_comp -> . HAS_NOT
+    (14) num_attribute -> . ATTR_VALUE
+    (15) str_attribute -> . ATTR_NAME
+    (16) str_attribute -> . ATTR_DESCRIPTION
+
+    LPAREN          shift and go to state 10
+    ATTR_CLASS      shift and go to state 2
+    ATTR_RANK       shift and go to state 7
+    HAS             shift and go to state 12
+    HAS_NOT         shift and go to state 11
+    ATTR_VALUE      shift and go to state 3
+    ATTR_NAME       shift and go to state 1
+    ATTR_DESCRIPTION shift and go to state 5
+
+    num_attribute                  shift and go to state 6
+    str_attribute                  shift and go to state 8
+    exist_comp                     shift and go to state 9
+    statement                      shift and go to state 4
+    expression                     shift and go to state 13
+
+state 1
+
+    (15) str_attribute -> ATTR_NAME .
+
+    STARTS_WITH     reduce using rule 15 (str_attribute -> ATTR_NAME .)
+    ENDS_WITH       reduce using rule 15 (str_attribute -> ATTR_NAME .)
+    CONTAINS        reduce using rule 15 (str_attribute -> ATTR_NAME .)
+    J_AND           reduce using rule 15 (str_attribute -> ATTR_NAME .)
+    J_OR            reduce using rule 15 (str_attribute -> ATTR_NAME .)
+    J_N_EQUALS      reduce using rule 15 (str_attribute -> ATTR_NAME .)
+    J_IMPLIES       reduce using rule 15 (str_attribute -> ATTR_NAME .)
+    J_EQUALS        reduce using rule 15 (str_attribute -> ATTR_NAME .)
+    $end            reduce using rule 15 (str_attribute -> ATTR_NAME .)
+    RPAREN          reduce using rule 15 (str_attribute -> ATTR_NAME .)
+
+
+state 2
+
+    (5) expression -> ATTR_CLASS . equal_comp CLASS
+    (17) equal_comp -> . EQUAL
+    (18) equal_comp -> . N_EQUAL
+
+    EQUAL           shift and go to state 16
+    N_EQUAL         shift and go to state 14
+
+    equal_comp                     shift and go to state 15
+
+state 3
+
+    (14) num_attribute -> ATTR_VALUE .
+
+    LESSER          reduce using rule 14 (num_attribute -> ATTR_VALUE .)
+    GREATER         reduce using rule 14 (num_attribute -> ATTR_VALUE .)
+    EQ_GREATER      reduce using rule 14 (num_attribute -> ATTR_VALUE .)
+    EQ_LESSER       reduce using rule 14 (num_attribute -> ATTR_VALUE .)
+    EQUAL           reduce using rule 14 (num_attribute -> ATTR_VALUE .)
+    N_EQUAL         reduce using rule 14 (num_attribute -> ATTR_VALUE .)
+    J_AND           reduce using rule 14 (num_attribute -> ATTR_VALUE .)
+    J_OR            reduce using rule 14 (num_attribute -> ATTR_VALUE .)
+    J_N_EQUALS      reduce using rule 14 (num_attribute -> ATTR_VALUE .)
+    J_IMPLIES       reduce using rule 14 (num_attribute -> ATTR_VALUE .)
+    J_EQUALS        reduce using rule 14 (num_attribute -> ATTR_VALUE .)
+    $end            reduce using rule 14 (num_attribute -> ATTR_VALUE .)
+    RPAREN          reduce using rule 14 (num_attribute -> ATTR_VALUE .)
+
+
+state 4
+
+    (0) S' -> statement .
+
+
+
+state 5
+
+    (16) str_attribute -> ATTR_DESCRIPTION .
+
+    STARTS_WITH     reduce using rule 16 (str_attribute -> ATTR_DESCRIPTION .)
+    ENDS_WITH       reduce using rule 16 (str_attribute -> ATTR_DESCRIPTION .)
+    CONTAINS        reduce using rule 16 (str_attribute -> ATTR_DESCRIPTION .)
+    J_AND           reduce using rule 16 (str_attribute -> ATTR_DESCRIPTION .)
+    J_OR            reduce using rule 16 (str_attribute -> ATTR_DESCRIPTION .)
+    J_N_EQUALS      reduce using rule 16 (str_attribute -> ATTR_DESCRIPTION .)
+    J_IMPLIES       reduce using rule 16 (str_attribute -> ATTR_DESCRIPTION .)
+    J_EQUALS        reduce using rule 16 (str_attribute -> ATTR_DESCRIPTION .)
+    $end            reduce using rule 16 (str_attribute -> ATTR_DESCRIPTION .)
+    RPAREN          reduce using rule 16 (str_attribute -> ATTR_DESCRIPTION .)
+
+
+state 6
+
+    (7) expression -> num_attribute . num_comp NUMBER
+    (19) num_comp -> . equal_comp
+    (20) num_comp -> . LESSER
+    (21) num_comp -> . GREATER
+    (22) num_comp -> . EQ_GREATER
+    (23) num_comp -> . EQ_LESSER
+    (17) equal_comp -> . EQUAL
+    (18) equal_comp -> . N_EQUAL
+
+    LESSER          shift and go to state 21
+    GREATER         shift and go to state 19
+    EQ_GREATER      shift and go to state 17
+    EQ_LESSER       shift and go to state 20
+    EQUAL           shift and go to state 16
+    N_EQUAL         shift and go to state 14
+
+    equal_comp                     shift and go to state 18
+    num_comp                       shift and go to state 22
+
+state 7
+
+    (6) expression -> ATTR_RANK . num_comp RANK
+    (19) num_comp -> . equal_comp
+    (20) num_comp -> . LESSER
+    (21) num_comp -> . GREATER
+    (22) num_comp -> . EQ_GREATER
+    (23) num_comp -> . EQ_LESSER
+    (17) equal_comp -> . EQUAL
+    (18) equal_comp -> . N_EQUAL
+
+    LESSER          shift and go to state 21
+    GREATER         shift and go to state 19
+    EQ_GREATER      shift and go to state 17
+    EQ_LESSER       shift and go to state 20
+    EQUAL           shift and go to state 16
+    N_EQUAL         shift and go to state 14
+
+    equal_comp                     shift and go to state 18
+    num_comp                       shift and go to state 23
+
+state 8
+
+    (8) expression -> str_attribute . str_comp STRING
+    (24) str_comp -> . STARTS_WITH
+    (25) str_comp -> . ENDS_WITH
+    (26) str_comp -> . CONTAINS
+
+    STARTS_WITH     shift and go to state 26
+    ENDS_WITH       shift and go to state 25
+    CONTAINS        shift and go to state 24
+
+    str_comp                       shift and go to state 27
+
+state 9
+
+    (4) expression -> exist_comp . attribute
+    (9) attribute -> . num_attribute
+    (10) attribute -> . str_attribute
+    (11) attribute -> . enum_attribute
+    (14) num_attribute -> . ATTR_VALUE
+    (15) str_attribute -> . ATTR_NAME
+    (16) str_attribute -> . ATTR_DESCRIPTION
+    (12) enum_attribute -> . ATTR_CLASS
+    (13) enum_attribute -> . ATTR_RANK
+
+    ATTR_VALUE      shift and go to state 3
+    ATTR_NAME       shift and go to state 1
+    ATTR_DESCRIPTION shift and go to state 5
+    ATTR_CLASS      shift and go to state 32
+    ATTR_RANK       shift and go to state 29
+
+    num_attribute                  shift and go to state 28
+    attribute                      shift and go to state 30
+    enum_attribute                 shift and go to state 33
+    str_attribute                  shift and go to state 31
+
+state 10
+
+    (2) statement -> LPAREN . statement RPAREN
+    (1) statement -> . expression join statement
+    (2) statement -> . LPAREN statement RPAREN
+    (3) statement -> . expression
+    (4) expression -> . exist_comp attribute
+    (5) expression -> . ATTR_CLASS equal_comp CLASS
+    (6) expression -> . ATTR_RANK num_comp RANK
+    (7) expression -> . num_attribute num_comp NUMBER
+    (8) expression -> . str_attribute str_comp STRING
+    (27) exist_comp -> . HAS
+    (28) exist_comp -> . HAS_NOT
+    (14) num_attribute -> . ATTR_VALUE
+    (15) str_attribute -> . ATTR_NAME
+    (16) str_attribute -> . ATTR_DESCRIPTION
+
+    LPAREN          shift and go to state 10
+    ATTR_CLASS      shift and go to state 2
+    ATTR_RANK       shift and go to state 7
+    HAS             shift and go to state 12
+    HAS_NOT         shift and go to state 11
+    ATTR_VALUE      shift and go to state 3
+    ATTR_NAME       shift and go to state 1
+    ATTR_DESCRIPTION shift and go to state 5
+
+    num_attribute                  shift and go to state 6
+    str_attribute                  shift and go to state 8
+    exist_comp                     shift and go to state 9
+    statement                      shift and go to state 34
+    expression                     shift and go to state 13
+
+state 11
+
+    (28) exist_comp -> HAS_NOT .
+
+    ATTR_VALUE      reduce using rule 28 (exist_comp -> HAS_NOT .)
+    ATTR_NAME       reduce using rule 28 (exist_comp -> HAS_NOT .)
+    ATTR_DESCRIPTION reduce using rule 28 (exist_comp -> HAS_NOT .)
+    ATTR_CLASS      reduce using rule 28 (exist_comp -> HAS_NOT .)
+    ATTR_RANK       reduce using rule 28 (exist_comp -> HAS_NOT .)
+
+
+state 12
+
+    (27) exist_comp -> HAS .
+
+    ATTR_VALUE      reduce using rule 27 (exist_comp -> HAS .)
+    ATTR_NAME       reduce using rule 27 (exist_comp -> HAS .)
+    ATTR_DESCRIPTION reduce using rule 27 (exist_comp -> HAS .)
+    ATTR_CLASS      reduce using rule 27 (exist_comp -> HAS .)
+    ATTR_RANK       reduce using rule 27 (exist_comp -> HAS .)
+
+
+state 13
+
+    (1) statement -> expression . join statement
+    (3) statement -> expression .
+    (29) join -> . J_AND
+    (30) join -> . J_OR
+    (31) join -> . J_N_EQUALS
+    (32) join -> . J_IMPLIES
+    (33) join -> . J_EQUALS
+
+    $end            reduce using rule 3 (statement -> expression .)
+    RPAREN          reduce using rule 3 (statement -> expression .)
+    J_AND           shift and go to state 39
+    J_OR            shift and go to state 38
+    J_N_EQUALS      shift and go to state 40
+    J_IMPLIES       shift and go to state 35
+    J_EQUALS        shift and go to state 37
+
+    join                           shift and go to state 36
+
+state 14
+
+    (18) equal_comp -> N_EQUAL .
+
+    NUMBER          reduce using rule 18 (equal_comp -> N_EQUAL .)
+    RANK            reduce using rule 18 (equal_comp -> N_EQUAL .)
+    CLASS           reduce using rule 18 (equal_comp -> N_EQUAL .)
+
+
+state 15
+
+    (5) expression -> ATTR_CLASS equal_comp . CLASS
+
+    CLASS           shift and go to state 41
+
+
+state 16
+
+    (17) equal_comp -> EQUAL .
+
+    NUMBER          reduce using rule 17 (equal_comp -> EQUAL .)
+    RANK            reduce using rule 17 (equal_comp -> EQUAL .)
+    CLASS           reduce using rule 17 (equal_comp -> EQUAL .)
+
+
+state 17
+
+    (22) num_comp -> EQ_GREATER .
+
+    NUMBER          reduce using rule 22 (num_comp -> EQ_GREATER .)
+    RANK            reduce using rule 22 (num_comp -> EQ_GREATER .)
+
+
+state 18
+
+    (19) num_comp -> equal_comp .
+
+    NUMBER          reduce using rule 19 (num_comp -> equal_comp .)
+    RANK            reduce using rule 19 (num_comp -> equal_comp .)
+
+
+state 19
+
+    (21) num_comp -> GREATER .
+
+    NUMBER          reduce using rule 21 (num_comp -> GREATER .)
+    RANK            reduce using rule 21 (num_comp -> GREATER .)
+
+
+state 20
+
+    (23) num_comp -> EQ_LESSER .
+
+    NUMBER          reduce using rule 23 (num_comp -> EQ_LESSER .)
+    RANK            reduce using rule 23 (num_comp -> EQ_LESSER .)
+
+
+state 21
+
+    (20) num_comp -> LESSER .
+
+    NUMBER          reduce using rule 20 (num_comp -> LESSER .)
+    RANK            reduce using rule 20 (num_comp -> LESSER .)
+
+
+state 22
+
+    (7) expression -> num_attribute num_comp . NUMBER
+
+    NUMBER          shift and go to state 42
+
+
+state 23
+
+    (6) expression -> ATTR_RANK num_comp . RANK
+
+    RANK            shift and go to state 43
+
+
+state 24
+
+    (26) str_comp -> CONTAINS .
+
+    STRING          reduce using rule 26 (str_comp -> CONTAINS .)
+
+
+state 25
+
+    (25) str_comp -> ENDS_WITH .
+
+    STRING          reduce using rule 25 (str_comp -> ENDS_WITH .)
+
+
+state 26
+
+    (24) str_comp -> STARTS_WITH .
+
+    STRING          reduce using rule 24 (str_comp -> STARTS_WITH .)
+
+
+state 27
+
+    (8) expression -> str_attribute str_comp . STRING
+
+    STRING          shift and go to state 44
+
+
+state 28
+
+    (9) attribute -> num_attribute .
+
+    J_AND           reduce using rule 9 (attribute -> num_attribute .)
+    J_OR            reduce using rule 9 (attribute -> num_attribute .)
+    J_N_EQUALS      reduce using rule 9 (attribute -> num_attribute .)
+    J_IMPLIES       reduce using rule 9 (attribute -> num_attribute .)
+    J_EQUALS        reduce using rule 9 (attribute -> num_attribute .)
+    $end            reduce using rule 9 (attribute -> num_attribute .)
+    RPAREN          reduce using rule 9 (attribute -> num_attribute .)
+
+
+state 29
+
+    (13) enum_attribute -> ATTR_RANK .
+
+    J_AND           reduce using rule 13 (enum_attribute -> ATTR_RANK .)
+    J_OR            reduce using rule 13 (enum_attribute -> ATTR_RANK .)
+    J_N_EQUALS      reduce using rule 13 (enum_attribute -> ATTR_RANK .)
+    J_IMPLIES       reduce using rule 13 (enum_attribute -> ATTR_RANK .)
+    J_EQUALS        reduce using rule 13 (enum_attribute -> ATTR_RANK .)
+    $end            reduce using rule 13 (enum_attribute -> ATTR_RANK .)
+    RPAREN          reduce using rule 13 (enum_attribute -> ATTR_RANK .)
+
+
+state 30
+
+    (4) expression -> exist_comp attribute .
+
+    J_AND           reduce using rule 4 (expression -> exist_comp attribute .)
+    J_OR            reduce using rule 4 (expression -> exist_comp attribute .)
+    J_N_EQUALS      reduce using rule 4 (expression -> exist_comp attribute .)
+    J_IMPLIES       reduce using rule 4 (expression -> exist_comp attribute .)
+    J_EQUALS        reduce using rule 4 (expression -> exist_comp attribute .)
+    RPAREN          reduce using rule 4 (expression -> exist_comp attribute .)
+    $end            reduce using rule 4 (expression -> exist_comp attribute .)
+
+
+state 31
+
+    (10) attribute -> str_attribute .
+
+    J_AND           reduce using rule 10 (attribute -> str_attribute .)
+    J_OR            reduce using rule 10 (attribute -> str_attribute .)
+    J_N_EQUALS      reduce using rule 10 (attribute -> str_attribute .)
+    J_IMPLIES       reduce using rule 10 (attribute -> str_attribute .)
+    J_EQUALS        reduce using rule 10 (attribute -> str_attribute .)
+    $end            reduce using rule 10 (attribute -> str_attribute .)
+    RPAREN          reduce using rule 10 (attribute -> str_attribute .)
+
+
+state 32
+
+    (12) enum_attribute -> ATTR_CLASS .
+
+    J_AND           reduce using rule 12 (enum_attribute -> ATTR_CLASS .)
+    J_OR            reduce using rule 12 (enum_attribute -> ATTR_CLASS .)
+    J_N_EQUALS      reduce using rule 12 (enum_attribute -> ATTR_CLASS .)
+    J_IMPLIES       reduce using rule 12 (enum_attribute -> ATTR_CLASS .)
+    J_EQUALS        reduce using rule 12 (enum_attribute -> ATTR_CLASS .)
+    $end            reduce using rule 12 (enum_attribute -> ATTR_CLASS .)
+    RPAREN          reduce using rule 12 (enum_attribute -> ATTR_CLASS .)
+
+
+state 33
+
+    (11) attribute -> enum_attribute .
+
+    J_AND           reduce using rule 11 (attribute -> enum_attribute .)
+    J_OR            reduce using rule 11 (attribute -> enum_attribute .)
+    J_N_EQUALS      reduce using rule 11 (attribute -> enum_attribute .)
+    J_IMPLIES       reduce using rule 11 (attribute -> enum_attribute .)
+    J_EQUALS        reduce using rule 11 (attribute -> enum_attribute .)
+    $end            reduce using rule 11 (attribute -> enum_attribute .)
+    RPAREN          reduce using rule 11 (attribute -> enum_attribute .)
+
+
+state 34
+
+    (2) statement -> LPAREN statement . RPAREN
+
+    RPAREN          shift and go to state 45
+
+
+state 35
+
+    (32) join -> J_IMPLIES .
+
+    LPAREN          reduce using rule 32 (join -> J_IMPLIES .)
+    ATTR_CLASS      reduce using rule 32 (join -> J_IMPLIES .)
+    ATTR_RANK       reduce using rule 32 (join -> J_IMPLIES .)
+    HAS             reduce using rule 32 (join -> J_IMPLIES .)
+    HAS_NOT         reduce using rule 32 (join -> J_IMPLIES .)
+    ATTR_VALUE      reduce using rule 32 (join -> J_IMPLIES .)
+    ATTR_NAME       reduce using rule 32 (join -> J_IMPLIES .)
+    ATTR_DESCRIPTION reduce using rule 32 (join -> J_IMPLIES .)
+
+
+state 36
+
+    (1) statement -> expression join . statement
+    (1) statement -> . expression join statement
+    (2) statement -> . LPAREN statement RPAREN
+    (3) statement -> . expression
+    (4) expression -> . exist_comp attribute
+    (5) expression -> . ATTR_CLASS equal_comp CLASS
+    (6) expression -> . ATTR_RANK num_comp RANK
+    (7) expression -> . num_attribute num_comp NUMBER
+    (8) expression -> . str_attribute str_comp STRING
+    (27) exist_comp -> . HAS
+    (28) exist_comp -> . HAS_NOT
+    (14) num_attribute -> . ATTR_VALUE
+    (15) str_attribute -> . ATTR_NAME
+    (16) str_attribute -> . ATTR_DESCRIPTION
+
+    LPAREN          shift and go to state 10
+    ATTR_CLASS      shift and go to state 2
+    ATTR_RANK       shift and go to state 7
+    HAS             shift and go to state 12
+    HAS_NOT         shift and go to state 11
+    ATTR_VALUE      shift and go to state 3
+    ATTR_NAME       shift and go to state 1
+    ATTR_DESCRIPTION shift and go to state 5
+
+    num_attribute                  shift and go to state 6
+    str_attribute                  shift and go to state 8
+    exist_comp                     shift and go to state 9
+    statement                      shift and go to state 46
+    expression                     shift and go to state 13
+
+state 37
+
+    (33) join -> J_EQUALS .
+
+    LPAREN          reduce using rule 33 (join -> J_EQUALS .)
+    ATTR_CLASS      reduce using rule 33 (join -> J_EQUALS .)
+    ATTR_RANK       reduce using rule 33 (join -> J_EQUALS .)
+    HAS             reduce using rule 33 (join -> J_EQUALS .)
+    HAS_NOT         reduce using rule 33 (join -> J_EQUALS .)
+    ATTR_VALUE      reduce using rule 33 (join -> J_EQUALS .)
+    ATTR_NAME       reduce using rule 33 (join -> J_EQUALS .)
+    ATTR_DESCRIPTION reduce using rule 33 (join -> J_EQUALS .)
+
+
+state 38
+
+    (30) join -> J_OR .
+
+    LPAREN          reduce using rule 30 (join -> J_OR .)
+    ATTR_CLASS      reduce using rule 30 (join -> J_OR .)
+    ATTR_RANK       reduce using rule 30 (join -> J_OR .)
+    HAS             reduce using rule 30 (join -> J_OR .)
+    HAS_NOT         reduce using rule 30 (join -> J_OR .)
+    ATTR_VALUE      reduce using rule 30 (join -> J_OR .)
+    ATTR_NAME       reduce using rule 30 (join -> J_OR .)
+    ATTR_DESCRIPTION reduce using rule 30 (join -> J_OR .)
+
+
+state 39
+
+    (29) join -> J_AND .
+
+    LPAREN          reduce using rule 29 (join -> J_AND .)
+    ATTR_CLASS      reduce using rule 29 (join -> J_AND .)
+    ATTR_RANK       reduce using rule 29 (join -> J_AND .)
+    HAS             reduce using rule 29 (join -> J_AND .)
+    HAS_NOT         reduce using rule 29 (join -> J_AND .)
+    ATTR_VALUE      reduce using rule 29 (join -> J_AND .)
+    ATTR_NAME       reduce using rule 29 (join -> J_AND .)
+    ATTR_DESCRIPTION reduce using rule 29 (join -> J_AND .)
+
+
+state 40
+
+    (31) join -> J_N_EQUALS .
+
+    LPAREN          reduce using rule 31 (join -> J_N_EQUALS .)
+    ATTR_CLASS      reduce using rule 31 (join -> J_N_EQUALS .)
+    ATTR_RANK       reduce using rule 31 (join -> J_N_EQUALS .)
+    HAS             reduce using rule 31 (join -> J_N_EQUALS .)
+    HAS_NOT         reduce using rule 31 (join -> J_N_EQUALS .)
+    ATTR_VALUE      reduce using rule 31 (join -> J_N_EQUALS .)
+    ATTR_NAME       reduce using rule 31 (join -> J_N_EQUALS .)
+    ATTR_DESCRIPTION reduce using rule 31 (join -> J_N_EQUALS .)
+
+
+state 41
+
+    (5) expression -> ATTR_CLASS equal_comp CLASS .
+
+    J_AND           reduce using rule 5 (expression -> ATTR_CLASS equal_comp CLASS .)
+    J_OR            reduce using rule 5 (expression -> ATTR_CLASS equal_comp CLASS .)
+    J_N_EQUALS      reduce using rule 5 (expression -> ATTR_CLASS equal_comp CLASS .)
+    J_IMPLIES       reduce using rule 5 (expression -> ATTR_CLASS equal_comp CLASS .)
+    J_EQUALS        reduce using rule 5 (expression -> ATTR_CLASS equal_comp CLASS .)
+    RPAREN          reduce using rule 5 (expression -> ATTR_CLASS equal_comp CLASS .)
+    $end            reduce using rule 5 (expression -> ATTR_CLASS equal_comp CLASS .)
+
+
+state 42
+
+    (7) expression -> num_attribute num_comp NUMBER .
+
+    J_AND           reduce using rule 7 (expression -> num_attribute num_comp NUMBER .)
+    J_OR            reduce using rule 7 (expression -> num_attribute num_comp NUMBER .)
+    J_N_EQUALS      reduce using rule 7 (expression -> num_attribute num_comp NUMBER .)
+    J_IMPLIES       reduce using rule 7 (expression -> num_attribute num_comp NUMBER .)
+    J_EQUALS        reduce using rule 7 (expression -> num_attribute num_comp NUMBER .)
+    RPAREN          reduce using rule 7 (expression -> num_attribute num_comp NUMBER .)
+    $end            reduce using rule 7 (expression -> num_attribute num_comp NUMBER .)
+
+
+state 43
+
+    (6) expression -> ATTR_RANK num_comp RANK .
+
+    J_AND           reduce using rule 6 (expression -> ATTR_RANK num_comp RANK .)
+    J_OR            reduce using rule 6 (expression -> ATTR_RANK num_comp RANK .)
+    J_N_EQUALS      reduce using rule 6 (expression -> ATTR_RANK num_comp RANK .)
+    J_IMPLIES       reduce using rule 6 (expression -> ATTR_RANK num_comp RANK .)
+    J_EQUALS        reduce using rule 6 (expression -> ATTR_RANK num_comp RANK .)
+    RPAREN          reduce using rule 6 (expression -> ATTR_RANK num_comp RANK .)
+    $end            reduce using rule 6 (expression -> ATTR_RANK num_comp RANK .)
+
+
+state 44
+
+    (8) expression -> str_attribute str_comp STRING .
+
+    J_AND           reduce using rule 8 (expression -> str_attribute str_comp STRING .)
+    J_OR            reduce using rule 8 (expression -> str_attribute str_comp STRING .)
+    J_N_EQUALS      reduce using rule 8 (expression -> str_attribute str_comp STRING .)
+    J_IMPLIES       reduce using rule 8 (expression -> str_attribute str_comp STRING .)
+    J_EQUALS        reduce using rule 8 (expression -> str_attribute str_comp STRING .)
+    RPAREN          reduce using rule 8 (expression -> str_attribute str_comp STRING .)
+    $end            reduce using rule 8 (expression -> str_attribute str_comp STRING .)
+
+
+state 45
+
+    (2) statement -> LPAREN statement RPAREN .
+
+    $end            reduce using rule 2 (statement -> LPAREN statement RPAREN .)
+    RPAREN          reduce using rule 2 (statement -> LPAREN statement RPAREN .)
+
+
+state 46
+
+    (1) statement -> expression join statement .
+
+    $end            reduce using rule 1 (statement -> expression join statement .)
+    RPAREN          reduce using rule 1 (statement -> expression join statement .)
+

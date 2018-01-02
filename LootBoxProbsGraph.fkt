@@ -1,0 +1,74 @@
+<!DOCTYPE kmpdoc>
+<kmpdoc version="4">
+    <axes color="#282828" width="0.2" tic-width="0.3" tic-legth="0.5">
+        <show-axes>1</show-axes>
+        <show-arrows>1</show-arrows>
+        <show-label>1</show-label>
+        <xmin>-0.5485213581599462</xmin>
+        <xmax>5.851478641840062</xmax>
+        <ymin>-2.520754716981131</ymin>
+        <ymax>3.879245283018868</ymax>
+    </axes>
+    <grid color="#aeaeae" width="0.1">
+        <mode>1</mode>
+    </grid>
+    <scale>
+        <tic-x-mode>0</tic-x-mode>
+        <tic-y-mode>0</tic-y-mode>
+        <tic-x>1</tic-x>
+        <tic-y>1</tic-y>
+    </scale>
+    <function f1-use-gradient="0" use-parameter-slider="0" integral-style="SolidLine" f1-gradient="0;#000000,1;#ffffff," f2-show-plot-name="0" integral-visible="0" f2-color="#191970" integral-gradient="0;#000000,1;#ffffff," f0-show-plot-name="0" integral-width="0.3" f1-show-plot-name="0" integral-show-extrema="0" f0-color="#ef2929" f0-show-tangent-field="0" f2-gradient="0;#000000,1;#ffffff," f1-show-extrema="0" f1-show-tangent-field="0" f2-show-tangent-field="0" parameter-slider="0" f2-width="0.3" f1-color="#191970" integral-use-gradient="0" f0-visible="1" integral-show-plot-name="0" f2-style="SolidLine" use-parameter-list="0" f0-show-extrema="0" f1-width="0.3" f0-use-gradient="0" f2-use-gradient="0" f1-visible="0" type="cartesian" f1-style="SolidLine" integral-show-tangent-field="0" f0-gradient="0;#000000,1;#ffffff," f2-show-extrema="0" f2-visible="0" integral-color="#191970" f0-width="0.3" f0-style="SolidLine">
+        <equation-0 step="0.05">f(x) = (x−1)∙10000<differential x="0" y="1"/>
+        </equation-0>
+        <arg-min use="0">0</arg-min>
+        <arg-max use="0">2π</arg-max>
+    </function>
+    <function f1-use-gradient="0" use-parameter-slider="0" integral-style="SolidLine" f1-gradient="0;#000000,1;#ffffff," f2-show-plot-name="0" integral-visible="0" f2-color="#006400" integral-gradient="0;#000000,1;#ffffff," f0-show-plot-name="0" integral-width="0.3" f1-show-plot-name="0" integral-show-extrema="0" f0-color="#ef2929" f0-show-tangent-field="0" f2-gradient="0;#000000,1;#ffffff," f1-show-extrema="0" f1-show-tangent-field="0" f2-show-tangent-field="0" parameter-slider="0" f2-width="0.3" f1-color="#006400" integral-use-gradient="0" f0-visible="1" integral-show-plot-name="0" f2-style="SolidLine" use-parameter-list="0" f0-show-extrema="0" f1-width="0.3" f0-use-gradient="0" f2-use-gradient="0" f1-visible="0" type="cartesian" f1-style="SolidLine" integral-show-tangent-field="0" f0-gradient="0;#000000,1;#ffffff," f2-show-extrema="0" f2-visible="0" integral-color="#006400" f0-width="0.3" f0-style="SolidLine">
+        <equation-0 step="0.05">g(x) = (x−2)∙10000<differential x="0" y="1"/>
+        </equation-0>
+        <arg-min use="0">0</arg-min>
+        <arg-max use="0">2π</arg-max>
+    </function>
+    <function f1-use-gradient="0" use-parameter-slider="0" integral-style="SolidLine" f1-gradient="0;#000000,1;#ffffff," f2-show-plot-name="0" integral-visible="0" f2-color="#ff4500" integral-gradient="0;#000000,1;#ffffff," f0-show-plot-name="0" integral-width="0.3" f1-show-plot-name="0" integral-show-extrema="0" f0-color="#ef2929" f0-show-tangent-field="0" f2-gradient="0;#000000,1;#ffffff," f1-show-extrema="0" f1-show-tangent-field="0" f2-show-tangent-field="0" parameter-slider="0" f2-width="0.3" f1-color="#ff4500" integral-use-gradient="0" f0-visible="1" integral-show-plot-name="0" f2-style="SolidLine" use-parameter-list="0" f0-show-extrema="0" f1-width="0.3" f0-use-gradient="0" f2-use-gradient="0" f1-visible="0" type="cartesian" f1-style="SolidLine" integral-show-tangent-field="0" f0-gradient="0;#000000,1;#ffffff," f2-show-extrema="0" f2-visible="0" integral-color="#ff4500" f0-width="0.3" f0-style="SolidLine">
+        <equation-0 step="0.05">h(x) = (x−3)∙10000<differential x="0" y="1"/>
+        </equation-0>
+        <arg-min use="0">0</arg-min>
+        <arg-max use="0">2π</arg-max>
+    </function>
+    <function f1-use-gradient="0" use-parameter-slider="0" integral-style="SolidLine" f1-gradient="0;#000000,1;#ffffff," f2-show-plot-name="0" integral-visible="0" f2-color="#808000" integral-gradient="0;#000000,1;#ffffff," f0-show-plot-name="0" integral-width="0.3" f1-show-plot-name="0" integral-show-extrema="0" f0-color="#ef2929" f0-show-tangent-field="0" f2-gradient="0;#000000,1;#ffffff," f1-show-extrema="0" f1-show-tangent-field="0" f2-show-tangent-field="0" parameter-slider="0" f2-width="0.3" f1-color="#808000" integral-use-gradient="0" f0-visible="1" integral-show-plot-name="0" f2-style="SolidLine" use-parameter-list="0" f0-show-extrema="0" f1-width="0.3" f0-use-gradient="0" f2-use-gradient="0" f1-visible="0" type="cartesian" f1-style="SolidLine" integral-show-tangent-field="0" f0-gradient="0;#000000,1;#ffffff," f2-show-extrema="0" f2-visible="0" integral-color="#808000" f0-width="0.3" f0-style="SolidLine">
+        <equation-0 step="0.05">i(x) = (x−4)∙10000<differential x="0" y="1"/>
+        </equation-0>
+        <arg-min use="0">0</arg-min>
+        <arg-max use="0">2π</arg-max>
+    </function>
+    <function f1-use-gradient="0" use-parameter-slider="0" integral-style="SolidLine" f1-gradient="0;#000000,1;#ffffff," f2-show-plot-name="0" integral-visible="0" f2-color="#ff1493" integral-gradient="0;#000000,1;#ffffff," f0-show-plot-name="0" integral-width="0.3" f1-show-plot-name="0" integral-show-extrema="0" f0-color="#4e9a06" f0-show-tangent-field="0" f2-gradient="0;#000000,1;#ffffff," f1-show-extrema="0" f1-show-tangent-field="0" f2-show-tangent-field="0" parameter-slider="0" f2-width="0.3" f1-color="#ff1493" integral-use-gradient="0" f0-visible="1" integral-show-plot-name="0" f2-style="SolidLine" use-parameter-list="0" f0-show-extrema="0" f1-width="0.3" f0-use-gradient="0" f2-use-gradient="0" f1-visible="0" type="cartesian" f1-style="SolidLine" integral-show-tangent-field="0" f0-gradient="0;#000000,1;#ffffff," f2-show-extrema="0" f2-visible="0" integral-color="#ff1493" f0-width="0.3" f0-style="SolidLine">
+        <equation-0 step="0.05">j(x) = −3(x−0.5)^2+3<differential x="0" y="1"/>
+        </equation-0>
+        <arg-min use="0">0</arg-min>
+        <arg-max use="0">2π</arg-max>
+    </function>
+    <function f1-use-gradient="0" use-parameter-slider="0" integral-style="SolidLine" f1-gradient="0;#000000,1;#ffffff," f2-show-plot-name="0" integral-visible="0" f2-color="#800000" integral-gradient="0;#000000,1;#ffffff," f0-show-plot-name="0" integral-width="0.3" f1-show-plot-name="0" integral-show-extrema="0" f0-color="#800000" f0-show-tangent-field="0" f2-gradient="0;#000000,1;#ffffff," f1-show-extrema="0" f1-show-tangent-field="0" f2-show-tangent-field="0" parameter-slider="0" f2-width="0.3" f1-color="#800000" integral-use-gradient="0" f0-visible="1" integral-show-plot-name="0" f2-style="SolidLine" use-parameter-list="0" f0-show-extrema="0" f1-width="0.3" f0-use-gradient="0" f2-use-gradient="0" f1-visible="0" type="cartesian" f1-style="SolidLine" integral-show-tangent-field="0" f0-gradient="0;#000000,1;#ffffff," f2-show-extrema="0" f2-visible="0" integral-color="#800000" f0-width="0.3" f0-style="SolidLine">
+        <equation-0 step="0.05">k(x) = −3(x−1.5)^2+3<differential x="0" y="1"/>
+        </equation-0>
+        <arg-min use="0">0</arg-min>
+        <arg-max use="0">2π</arg-max>
+    </function>
+    <function f1-use-gradient="0" use-parameter-slider="0" integral-style="SolidLine" f1-gradient="0;#000000,1;#ffffff," f2-show-plot-name="0" integral-visible="0" f2-color="#0000cd" integral-gradient="0;#000000,1;#ffffff," f0-show-plot-name="0" integral-width="0.3" f1-show-plot-name="0" integral-show-extrema="0" f0-color="#0000cd" f0-show-tangent-field="0" f2-gradient="0;#000000,1;#ffffff," f1-show-extrema="0" f1-show-tangent-field="0" f2-show-tangent-field="0" parameter-slider="0" f2-width="0.3" f1-color="#0000cd" integral-use-gradient="0" f0-visible="1" integral-show-plot-name="0" f2-style="SolidLine" use-parameter-list="0" f0-show-extrema="0" f1-width="0.3" f0-use-gradient="0" f2-use-gradient="0" f1-visible="0" type="cartesian" f1-style="SolidLine" integral-show-tangent-field="0" f0-gradient="0;#000000,1;#ffffff," f2-show-extrema="0" f2-visible="0" integral-color="#0000cd" f0-width="0.3" f0-style="SolidLine">
+        <equation-0 step="0.05">l(x) = −3(x−2.5)^2+3<differential x="0" y="1"/>
+        </equation-0>
+        <arg-min use="0">0</arg-min>
+        <arg-max use="0">2π</arg-max>
+    </function>
+    <function f1-use-gradient="0" use-parameter-slider="0" integral-style="SolidLine" f1-gradient="0;#000000,1;#ffffff," f2-show-plot-name="0" integral-visible="0" f2-color="#ff8c00" integral-gradient="0;#000000,1;#ffffff," f0-show-plot-name="0" integral-width="0.3" f1-show-plot-name="0" integral-show-extrema="0" f0-color="#ff8c00" f0-show-tangent-field="0" f2-gradient="0;#000000,1;#ffffff," f1-show-extrema="0" f1-show-tangent-field="0" f2-show-tangent-field="0" parameter-slider="0" f2-width="0.3" f1-color="#ff8c00" integral-use-gradient="0" f0-visible="1" integral-show-plot-name="0" f2-style="SolidLine" use-parameter-list="0" f0-show-extrema="0" f1-width="0.3" f0-use-gradient="0" f2-use-gradient="0" f1-visible="0" type="cartesian" f1-style="SolidLine" integral-show-tangent-field="0" f0-gradient="0;#000000,1;#ffffff," f2-show-extrema="0" f2-visible="0" integral-color="#ff8c00" f0-width="0.3" f0-style="SolidLine">
+        <equation-0 step="0.05">m(x) = −3(x−3.5)^2+3<differential x="0" y="1"/>
+        </equation-0>
+        <arg-min use="0">0</arg-min>
+        <arg-max use="0">2π</arg-max>
+    </function>
+    <fonts>
+        <axes-font>Cantarell</axes-font>
+        <label-font>Cantarell</label-font>
+        <header-table-font>Cantarell</header-table-font>
+    </fonts>
+</kmpdoc>

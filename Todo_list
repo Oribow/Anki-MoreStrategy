@@ -1,0 +1,52 @@
+10.12.2017-----------------------------
+What I did:
+
+Tableviews now update their views accordingly
+Introduced signals to the game class
+Money label now updates correctly
+Build an UI for Minions-Tab
+Build an Downloader for random monster names from Wikipedia
+
+What I think should be done next time:
+
+Would be cool to have the designed minions tab online
+Have to think about how a minion creator could be implemented
+
+13.12.2017------------------------------
+Shortcut for search: Ctrl + H
+
+What I did:
+
+Refractured the minion skeleton to be tree-like. The body is now the root component
+and all others children of that component. Even Equipment is in that tree.
+Added Enum for ItemClasses (Loooong over due!)
+Begun working on getting the minion inspector online (half finished)
+
+What I think should be done next time:
+
+Fix the compilation errors.
+Investigate a possibility to integrate None-Items stonger into the other items.
+Finish MinionInspector, with dynamic component labels soley based on the skeleton tree,
+with no prior configuration. 
+
+14.12.2017------------------------------
+What I did:
+Started complete redesign of everything!
+There will be no SQL-DB anymore(except for save states maybe??), all things will be defined in python code.
+Every Object in the Game will inherite from the same base Class.
+This allows me to define any kind of GameObject, with special functions, attributes,
+and even special UI!
+The item classes them self should define what is possible in the game.
+The UI only determines a subset of rules. So it would theoretically be possible to play
+2 completely different games with the same items! This could be used,
+in the future to expand the usefulness of items beyond creating minions and letting them fight.
+
+The inspector is function-wise finished, but it doesnt look very prety.
+
+What I think should be done next time:
+
+Implement a generic tab handler.
+-should integrate with inspector
+-should allow the display of custom defined tabs
+->think about not having tabs alltogether
+->could display all items ever, but have a advandced filtering mechanism

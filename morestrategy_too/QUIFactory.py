@@ -1,7 +1,7 @@
 from data.StrUtil import tStr
 from data.AssetUtil import resPathToAbs
 from PyQt4.Qt import QLabel, QPushButton, QWidget, QHBoxLayout, QVBoxLayout, \
-    QFormLayout, QSizePolicy, QPixmap
+    QFormLayout, QSizePolicy, QPixmap, QSpinBox
 from PyQt4.QtCore import Qt
 
 
@@ -44,7 +44,7 @@ class QUIFactory(object):
         imgView = self.__mkImage(pathToImg, options)
         self.containerStack[-1].addWidget(imgView)
 
-    def __mkImage(self, pathToImg, options):
+    def __mkImage(self, pathToImg, options={}):
         imgView = self.makeWidget(QLabel)
         imgView.setPixmap(QPixmap(resPathToAbs(pathToImg)))
         imgView.setFixedSize(options.get("width", 50), options.get("height", 50))
@@ -55,7 +55,7 @@ class QUIFactory(object):
         bt = self.__mkButton(text, options)
         self.containerStack[-1].addWidget(bt)
 
-    def __mkButton(self, text, options):
+    def __mkButton(self, text, options={}):
         bt = self.makeWidget(QPushButton, tStr(text))
 
         clickedSlot = options.get("clickedSlot", None)
@@ -67,19 +67,37 @@ class QUIFactory(object):
         label = self.__mkLabel(text, options)
         self.containerStack[-1].addWidget(label)
 
-    def __mkLabel(self, text, options):
+    def __mkLabel(self, text, options={}):
         label = self.makeWidget(QLabel, tStr(text))
 
         label.setWordWrap(options.get("wordWrap", True))
         label.setAlignment(options.get("alignment", Qt.AlignLeft | Qt.AlignVCenter))
-        label.setSizePolicy(options.get("sizePolicy", QSizePolicy.Preferred, QSizePolicy.Preferred))
+        label.setSizePolicy(*options.get("sizePolicy", (QSizePolicy.Preferred, QSizePolicy.Preferred)))
         f = label.font()
-        f.setPointSize(options.get("fontSize"), 11)
+        f.setPointSize(options.get("fontSize", 11))
         label.setFont(f)
-        label.setScaledContents(options.get("scaledContents"), True)
+        label.setScaledContents(options.get("scaledContents", True))
+        elideWidth = options.get("maxTextWidth", 0)
+        if elideWidth > 0:
+            text = label.fontMetrics().elidedText(text, Qt.ElideRight, elideWidth)
+            label.setText(text)
         return label
 
-    def labels(self, texts, addColon = True):
+    def spinBox(self, value, min, max, **options):
+        spBox = self.__mkSpinBox(value, min, max, options)
+        self.containerStack[-1].addWidget(spBox)
+
+    def __mkSpinBox(self, value, min, max, options={}):
+        spBox = QSpinBox()
+        spBox.setValue(value)
+        spBox.setMinimum(min)
+        spBox.setMaximum(max)
+        valueChangedSlot = options.get("valueChangedSlot", None)
+        if valueChangedSlot is not None:
+            spBox.valueChanged.connect(valueChangedSlot)
+        return spBox
+
+    def labels(self, texts, addColon=True):
         self.__beginFormLayout()
         for i in range(len(texts)):
             s = tStr(texts[i][0])
@@ -158,17 +176,17 @@ class ItemInspectorUIFactory(QUIFactory):
     def header(self, rank, headline, imgPath):
         self.beginHorizontal()
         self.beginVertical()
-        self.addRank(rank)
-        self.addHeadline(headline)
+        self.rank(rank)
+        self.headline(headline)
         self.endVertical()
-        self.addImg(imgPath)
+        self.image(imgPath)
         self.endHorizontal()
 
     def extraFuncButtons(self, item):
         self.beginHorizontal()
         funcs = item.getExtraFunctionality()
         for k, v in funcs.iteritems():
-            self.button(k, lambda v=v: self.extraFuncClickedSlot(v))
+            self.button(k, clickedSlot=(lambda func=v: self.extraFuncClickedSlot(func)))
         self.endHorizontal()
 
     def description(self, text):
@@ -179,3 +197,37 @@ class ItemInspectorUIFactory(QUIFactory):
 
     def headline(self, text):
         self.label(text, fontSize=30)
+
+
+class ComposerItemUIFactory(QUIFactory):
+    V_SPACE = 4
+    H_SPACE = 4
+
+    def __init__(self, gScene):
+        self.gScene = gScene
+
+    def beginRootLayout(self, x, y, itemSize, parentGItem):
+        self.itemSize = itemSize
+
+        widget = QWidget()
+        layout = QVBoxLayout()
+        layout.setContentsMargins(4, 4, 4, 4)
+        widget.setLayout(layout)
+        self.layoutStack = [layout]
+        self.beginVertical()
+        widget.setFixedSize(itemSize, itemSize)
+        widget.setAttribute(Qt.WA_TranslucentBackground)
+        proxyWidget = self.gScene.addWidget(widget)
+        proxyWidget.setPos(x, y)
+        parentGItem.addToGroup(proxyWidget)
+
+    def endRootLayout(self):
+        v = self.containerStack.pop()
+        if type(v) != QVBoxLayout:
+            raise Exception("Tried to end layout, wrong layout on top of stack!")
+
+    def label(self, text, **options):
+        QUIFactory.label(self, text, maxTextWidth=self.itemSize - 4)
+
+    def image(self, pathToImg, **options):
+        QUIFactory.image(self, pathToImg, width=self.itemSize/3, height=self.itemSize/3)

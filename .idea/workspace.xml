@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47d38f3e-f8f1-4dae-a6c3-085f1a497748" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/data/ItemTemplates.py" afterPath="$PROJECT_DIR$/data/ItemTemplates.py" />
-      <change beforePath="$PROJECT_DIR$/morestrategy_too/QItemInspector.py" afterPath="$PROJECT_DIR$/morestrategy_too/QItemInspector.py" />
+      <change beforePath="$PROJECT_DIR$/morestrategy_too/QComposer.py" afterPath="$PROJECT_DIR$/morestrategy_too/QComposer.py" />
       <change beforePath="$PROJECT_DIR$/morestrategy_too/QUIFactory.py" afterPath="$PROJECT_DIR$/morestrategy_too/QUIFactory.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,11 +18,11 @@
       <content type="file-editors">
         <state>
           <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file leaf-file-name="QItemInspector.py" pinned="false" current-in-tab="true">
+            <file leaf-file-name="QItemInspector.py" pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/morestrategy_too/QItemInspector.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="470">
-                    <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+                  <state relative-caret-position="198">
+                    <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
                     <folding>
                       <element signature="e#49#78#0" expanded="true" />
                     </folding>
@@ -41,26 +40,26 @@
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="ItemTemplates.py" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/data/ItemTemplates.py">
+            <file leaf-file-name="QComposer.py" pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/morestrategy_too/QComposer.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="198">
-                    <caret line="77" column="34" lean-forward="false" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
-                    <folding />
+                  <state relative-caret-position="-648">
+                    <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+                    <folding>
+                      <element signature="e#49#374#0" expanded="true" />
+                      <element signature="e#11411#11577#0" expanded="false" />
+                      <element signature="e#12170#12423#0" expanded="false" />
+                    </folding>
                   </state>
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="QComposer.py" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/morestrategy_too/QComposer.py">
+            <file leaf-file-name="ItemTemplates.py" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/data/ItemTemplates.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="436">
-                    <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="258" selection-end-column="39" />
-                    <folding>
-                      <element signature="e#49#374#0" expanded="true" />
-                      <element signature="e#13655#13821#0" expanded="false" />
-                      <element signature="e#14414#14667#0" expanded="false" />
-                    </folding>
+                  <state relative-caret-position="154">
+                    <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+                    <folding />
                   </state>
                 </provider>
               </entry>
@@ -78,41 +77,32 @@
       <file leaf-file-name="QUIFactory.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/morestrategy_too/QUIFactory.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="188" column="77" lean-forward="false" selection-start-line="188" selection-start-column="77" selection-end-line="188" selection-end-column="77" />
+            <state relative-caret-position="623">
+              <caret line="99" column="51" lean-forward="false" selection-start-line="99" selection-start-column="51" selection-end-line="99" selection-end-column="51" />
               <folding>
-                <element signature="e#342#484#0" expanded="false" />
-                <element signature="e#525#659#0" expanded="false" />
-                <element signature="e#698#1314#0" expanded="false" />
-                <element signature="e#968#1314#0" expanded="false" />
-                <element signature="e#1045#1094#0" expanded="false" />
-                <element signature="e#1129#1314#0" expanded="false" />
-                <element signature="e#1367#1462#0" expanded="false" />
-                <element signature="e#1520#1789#0" expanded="false" />
-                <element signature="e#1838#1919#0" expanded="false" />
-                <element signature="e#2220#2306#0" expanded="false" />
-                <element signature="e#2912#3014#0" expanded="false" />
-                <element signature="e#3096#3195#0" expanded="false" />
-                <element signature="e#4009#4141#0" expanded="false" />
-                <element signature="e#4193#4427#0" expanded="false" />
-                <element signature="e#4466#4612#0" expanded="false" />
-                <element signature="e#4662#4896#0" expanded="false" />
-                <element signature="e#4933#5079#0" expanded="false" />
-                <element signature="e#5122#5282#0" expanded="false" />
-                <element signature="e#5323#5469#0" expanded="false" />
-                <element signature="e#5520#5937#0" expanded="false" />
-                <element signature="e#5583#5806#0" expanded="false" />
-                <element signature="e#5833#5915#0" expanded="false" />
-                <element signature="e#6037#6085#0" expanded="false" />
-                <element signature="e#6640#6656#0" expanded="false" />
-                <element signature="e#6692#6713#0" expanded="false" />
-                <element signature="e#6753#6782#0" expanded="false" />
-                <element signature="e#6830#7876#0" expanded="false" />
-                <element signature="e#6899#6919#0" expanded="false" />
-                <element signature="e#6989#7450#0" expanded="false" />
-                <element signature="e#7489#7635#0" expanded="false" />
-                <element signature="e#7683#7743#0" expanded="false" />
-                <element signature="e#7796#7876#0" expanded="false" />
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StrUtil.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/StrUtil.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tabs.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/morestrategy_too/Tabs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#76#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -152,6 +142,7 @@
       <find>clear</find>
       <find>__getState__</find>
       <find>game</find>
+      <find>draw</find>
     </findStrings>
     <replaceStrings>
       <replace>layerIndex</replace>
@@ -185,7 +176,6 @@
         <option value="$PROJECT_DIR$/data/QuestTemplates.py" />
         <option value="$PROJECT_DIR$/morestrategy_too/AmountList.py" />
         <option value="$PROJECT_DIR$/data/ItemExtraFunctions.py" />
-        <option value="$PROJECT_DIR$/morestrategy_too/QComposer.py" />
         <option value="$PROJECT_DIR$/morestrategy_too/QItemCollectionSelector.py" />
         <option value="$PROJECT_DIR$/morestrategy_too/UnitTest.py" />
         <option value="$PROJECT_DIR$/morestrategy_too/Game.py" />
@@ -194,6 +184,7 @@
         <option value="$PROJECT_DIR$/morestrategy_too/QRefilaFavoriteManager.py" />
         <option value="$PROJECT_DIR$/data/Quests.py" />
         <option value="$PROJECT_DIR$/morestrategy_too/QItemInspector.py" />
+        <option value="$PROJECT_DIR$/morestrategy_too/QComposer.py" />
         <option value="$PROJECT_DIR$/data/ItemTemplates.py" />
         <option value="$PROJECT_DIR$/morestrategy_too/QUIFactory.py" />
       </list>
@@ -340,20 +331,31 @@
       <window_info id="Metrics" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291714" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22247446" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22247446" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291714" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.49707174" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21656051" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280363" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41016948" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40976164" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280363" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.49707174" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17138599" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21656051" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41016948" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935917" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890365" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -398,15 +400,11 @@
           <line>89</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/morestrategy_too/Tabs.py</url>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="25" />
+      <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -648,15 +646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/StrUtil.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1998">
-          <caret line="111" column="56" lean-forward="false" selection-start-line="111" selection-start-column="56" selection-end-line="111" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -682,16 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/morestrategy_too/Tabs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="793">
-          <caret line="58" column="25" lean-forward="false" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#76#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/ItemExtraFunctions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -700,33 +679,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/morestrategy_too/QItemCollectionSelector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1422">
-          <caret line="85" column="93" lean-forward="false" selection-start-line="85" selection-start-column="93" selection-end-line="85" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/morestrategy_too/QComposer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="258" selection-end-column="39" />
-          <folding>
-            <element signature="e#49#374#0" expanded="true" />
-            <element signature="e#13655#13821#0" expanded="false" />
-            <element signature="e#14414#14667#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/Quests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -752,9 +708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-          <folding>
-            <element signature="e#49#106#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -762,65 +715,71 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="48" column="22" lean-forward="false" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/ItemTemplates.py">
+    <entry file="file://$PROJECT_DIR$/morestrategy_too/QItemCollectionSelector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="77" column="34" lean-forward="false" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
+        <state relative-caret-position="1422">
+          <caret line="85" column="93" lean-forward="false" selection-start-line="85" selection-start-column="93" selection-end-line="85" selection-end-column="93" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/morestrategy_too/QItemInspector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
             <element signature="e#49#78#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/morestrategy_too/QComposer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-648">
+          <caret line="40" column="8" lean-forward="false" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+          <folding>
+            <element signature="e#49#374#0" expanded="true" />
+            <element signature="e#11411#11577#0" expanded="false" />
+            <element signature="e#12170#12423#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/morestrategy_too/Tabs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/StrUtil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/ItemTemplates.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/morestrategy_too/QUIFactory.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="188" column="77" lean-forward="false" selection-start-line="188" selection-start-column="77" selection-end-line="188" selection-end-column="77" />
+        <state relative-caret-position="623">
+          <caret line="99" column="51" lean-forward="false" selection-start-line="99" selection-start-column="51" selection-end-line="99" selection-end-column="51" />
           <folding>
-            <element signature="e#342#484#0" expanded="false" />
-            <element signature="e#525#659#0" expanded="false" />
-            <element signature="e#698#1314#0" expanded="false" />
-            <element signature="e#968#1314#0" expanded="false" />
-            <element signature="e#1045#1094#0" expanded="false" />
-            <element signature="e#1129#1314#0" expanded="false" />
-            <element signature="e#1367#1462#0" expanded="false" />
-            <element signature="e#1520#1789#0" expanded="false" />
-            <element signature="e#1838#1919#0" expanded="false" />
-            <element signature="e#2220#2306#0" expanded="false" />
-            <element signature="e#2912#3014#0" expanded="false" />
-            <element signature="e#3096#3195#0" expanded="false" />
-            <element signature="e#4009#4141#0" expanded="false" />
-            <element signature="e#4193#4427#0" expanded="false" />
-            <element signature="e#4466#4612#0" expanded="false" />
-            <element signature="e#4662#4896#0" expanded="false" />
-            <element signature="e#4933#5079#0" expanded="false" />
-            <element signature="e#5122#5282#0" expanded="false" />
-            <element signature="e#5323#5469#0" expanded="false" />
-            <element signature="e#5520#5937#0" expanded="false" />
-            <element signature="e#5583#5806#0" expanded="false" />
-            <element signature="e#5833#5915#0" expanded="false" />
-            <element signature="e#6037#6085#0" expanded="false" />
-            <element signature="e#6640#6656#0" expanded="false" />
-            <element signature="e#6692#6713#0" expanded="false" />
-            <element signature="e#6753#6782#0" expanded="false" />
-            <element signature="e#6830#7876#0" expanded="false" />
-            <element signature="e#6899#6919#0" expanded="false" />
-            <element signature="e#6989#7450#0" expanded="false" />
-            <element signature="e#7489#7635#0" expanded="false" />
-            <element signature="e#7683#7743#0" expanded="false" />
-            <element signature="e#7796#7876#0" expanded="false" />
+            <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -94,7 +94,7 @@ class BaseItem(object):
                 uiFactory.endHorizontal()
         else:
             uiFactory.beginHorizontal()
-            uiFactory.spinBox(1, max)
+            uiFactory.spinBox(amount, 1, max)
             uiFactory.label("({}-{})".format(min, max))
             uiFactory.endHorizontal()
 

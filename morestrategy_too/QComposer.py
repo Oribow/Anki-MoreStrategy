@@ -16,6 +16,7 @@ from data.Refila import ConstFilter
 from morestrategy_too.AmountList import AmountList, AmountItem, copyInPlace
 from morestrategy_too.GameData import Actor
 from morestrategy_too.QItemCollectionSelector import QItemCollectionSelector
+from morestrategy_too.QUIFactory import ComposerItemUIFactory
 import math
 
 ITEM_SIZE = 100
@@ -36,8 +37,8 @@ class QComposer(object):
         self.selectionIndicator = QGraphicsEllipseItem(-100, -100, INDICATOR_SIZE, INDICATOR_SIZE)
         self.scene.addItem(self.selectionIndicator)
         TreeItem.scene = self.scene
-        TreeItemLayouter.scene = self.scene
         TreeItem.changeAmountCallback = self.changeAmount
+        TreeItem.uiFactory = ComposerItemUIFactory(self.scene)
 
         self.collectionSelector = collectionSelector
         collectionSelector.selectedChanged.connect(self.aItemSelectionChanged)
@@ -162,7 +163,7 @@ class QComposer(object):
 
     def clearClicked(self):
         self.targetActor.ownedItems.startBatch()
-        self.rootGItem.clear(self.proxyActor, TreeItem.CLEAR_RECYLCLE)
+        self.rootGItem.clear(self.proxyActor, TreeItem.CLEAR_RECYCLE)
         self.targetActor.ownedItems.endBatch()
         self.rootGItem.drawCached()
 
@@ -184,87 +185,12 @@ class QComposer(object):
             self.autofill(c)
 
 
-class TreeItemLayouter(object):
-    V_SPACE = 4
-    H_SPACE = 4
-    scene = None
-
-    def beginLayouting(self, x, y, parent, amountChangedSlot):
-        widget = QWidget()
-        layout = QVBoxLayout()
-        layout.setContentsMargins(4, 4, 4, 4)
-        widget.setLayout(layout)
-        self.layoutStack = [layout]
-        self.amountChangedSlot = amountChangedSlot
-        self.beginVertical()
-        widget.setFixedSize(ITEM_SIZE, ITEM_SIZE)
-        widget.setAttribute(Qt.WA_TranslucentBackground)
-        proxyWidget = self.scene.addWidget(widget)
-        proxyWidget.setPos(x, y)
-        parent.addToGroup(proxyWidget)
-
-    def endLayouting(self):
-        self.endVertical()
-        self.layoutStack = None
-        self.amountChangedSlot = None
-
-    def addLabel(self, text):
-        item = QLabel()
-        text = item.fontMetrics().elidedText(text, Qt.ElideRight, ITEM_SIZE - 4)
-        item.setText(text)
-        self.layoutStack[-1].addWidget(item)
-
-    def addImg(self, imgPath):
-        item = QLabel()
-        item.setPixmap(QPixmap(resPathToAbs(imgPath)))
-        item.setFixedSize(ITEM_SIZE / 3, ITEM_SIZE / 3)
-        item.setScaledContents(True)
-        self.layoutStack[-1].addWidget(item)
-
-    def addHSlider(self, min, max, valueChanges):
-        item = QSlider(Qt.Horizontal)
-        item.setSingleStep(1)
-        item.setMinimum(min)
-        item.setMaximum(max)
-        self.layoutStack[-1].addWidget(item)
-
-    def addSpinBox(self, amount, min, max):
-        item = QSpinBox()
-        item.setValue(amount)
-        item.setMinimum(min)
-        item.setMaximum(max)
-        item.valueChanged.connect(self.amountChangedSlot)
-        self.layoutStack[-1].addWidget(item)
-
-    def beginHorizontal(self):
-        widget = QWidget()
-        h = QHBoxLayout()
-        h.setContentsMargins(0, 0, 0, 0)
-        widget.setLayout(h)
-        self.layoutStack[-1].addWidget(widget)
-        self.layoutStack.append(h)
-
-    def beginVertical(self):
-        widget = QWidget()
-        v = QVBoxLayout()
-        v.setContentsMargins(0, 0, 0, 0)
-        widget.setLayout(v)
-        self.layoutStack[-1].addWidget(widget)
-        self.layoutStack.append(v)
-
-    def endVertical(self):
-        layout = self.layoutStack.pop()
-
-    def endHorizontal(self):
-        layout = self.layoutStack.pop()
-
-
 class TreeItem(QGraphicsItemGroup):
-    CLEAR_RECYLCLE, CLEAR_REMOVE, CLEAR_IGNORE = range(3)
+    CLEAR_RECYCLE, CLEAR_REMOVE, CLEAR_IGNORE = range(3)
 
     scene = None
-    layouter = TreeItemLayouter()
     changeAmountCallback = None
+    uiFactory = None
 
     def __init__(self, parent=None):
         QGraphicsItemGroup.__init__(self)
@@ -284,7 +210,7 @@ class TreeItem(QGraphicsItemGroup):
             return
         proxyActor.ownedItems.startBatch()
         if self.aItem != None:
-            self.clear(proxyActor, self.CLEAR_RECYLCLE)
+            self.clear(proxyActor, self.CLEAR_RECYCLE)
 
         if aItem != None:
             self.takePreferredAmountOfItem(proxyActor, aItem)
@@ -331,9 +257,9 @@ class TreeItem(QGraphicsItemGroup):
 
         self.drawBase()
         if self.aItem != None:
-            self.layouter.beginLayouting(x, y, self, self.amountChanged)
-            self.aItem.item.onComposerDraw(self.layouter, self.aItem.amount, self.getMinAmount(), self.getMaxAmount())
-            self.layouter.endLayouting()
+            self.uiFactory.beginRootLayout(x, y, ITEM_SIZE, self)
+            self.aItem.item.onComposerDraw(self.uiFactory, self.aItem.amount, self.getMinAmount(), self.getMaxAmount())
+            self.uiFactory.endRootLayout()
 
         orgX = x
         orgY = y
@@ -427,7 +353,7 @@ class TreeItem(QGraphicsItemGroup):
     def clear(self, actor, clearMode):
         for c in self.children:
             c.clear(actor, clearMode)
-        if clearMode == self.CLEAR_RECYLCLE:
+        if clearMode == self.CLEAR_RECYCLE:
             if self.aItem != None:
                 actor.ownedItems.append(self.aItem)
         elif clearMode == self.CLEAR_REMOVE:

@@ -3,12 +3,13 @@ Created on Dec 20, 2017
 
 @author: Oribow
 '''
-from PyQt4.Qt import QGraphicsView, QGraphicsItemGroup, QGraphicsRectItem, \
-    QGraphicsItem, QBrush, QGraphicsScene, QGraphicsLineItem, QPixmap, QLabel, QVBoxLayout, QWidget, QHBoxLayout, \
+from PyQt5.QtWidgets import QGraphicsView, QGraphicsItemGroup, QGraphicsRectItem, \
+    QGraphicsItem, QGraphicsScene, QGraphicsLineItem, QLabel, QVBoxLayout, QWidget, QHBoxLayout, \
     QSlider, QGraphicsEllipseItem, \
-    QSpinBox, QAbstractItemView, QItemSelectionModel, \
-    QPushButton, QTableView, pyqtSignal
-from PyQt4.QtCore import Qt
+    QSpinBox, QAbstractItemView, \
+    QPushButton, QTableView
+from PyQt5.QtCore import Qt, pyqtSignal, QItemSelectionModel
+from PyQt5.Qt import QBrush, QPixmap
 
 from data.AssetUtil import resPathToAbs
 from data.ItemTemplates import ComposeableItem
@@ -310,7 +311,7 @@ class TreeItem(QGraphicsItemGroup):
 
     def getMaxAmount(self):
         if self.parent == None:
-            return -1
+            return 1
         otherChildren = self.parent.getOtherChildren(self)
         return self.parent.aItem.item.maxAmountOfItem(otherChildren, self.aItem)
 

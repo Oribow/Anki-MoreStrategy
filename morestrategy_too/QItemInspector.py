@@ -5,9 +5,9 @@ Created on Dec 14, 2017
 '''
 from data.StrUtil import tStr
 from data.AssetUtil import resPathToAbs
-from PyQt4.Qt import QLabel, QPushButton, QWidget, QHBoxLayout, QVBoxLayout, \
+from PyQt5.Qt import QLabel, QPushButton, QWidget, QHBoxLayout, QVBoxLayout, \
     QFormLayout, QSizePolicy, QPixmap
-from PyQt4.QtCore import Qt
+from PyQt5.QtCore import Qt
 from morestrategy_too.AmountList import AmountList
 from morestrategy_too.QUIFactory import ItemInspectorUIFactory
 
@@ -33,6 +33,7 @@ class QItemInspector(object):
         else:
             self.uiFactory.beginUI(self.graphicsViewWd)
             aItem.item.onInspectorGUI(self.uiFactory)
+            self.uiFactory.endUI()
             self.inspectedAItem = aItem
 
     def actorsItemsChanged(self, batch):

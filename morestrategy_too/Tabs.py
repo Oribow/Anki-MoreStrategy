@@ -6,8 +6,11 @@ from morestrategy_too.QComposer import QComposer
 from morestrategy_too.GameData import Actor
 from morestrategy_too.AmountList import AmountList
 from morestrategy_too.Game import Game
-from PyQt4.Qt import QFrame, QTableView, QLineEdit, QPushButton, QListWidget, QObject, pyqtSignal, QAbstractItemView
-
+from morestrategy_too.QuestManager import *
+from data import StrUtil
+from PyQt5.Qt import QFrame, QTableView, QLineEdit, QPushButton, QListWidget, QAbstractItemView, \
+    QListView, QTreeWidgetItem, QTreeWidget
+from PyQt5.QtCore import QObject, pyqtSignal
 
 class QTab(QObject):
     tabBecameVisible = pyqtSignal()
@@ -65,3 +68,25 @@ class ComposerTab(QTab):
         self.collectionSelector.tableView.setSelectionMode(QAbstractItemView.SingleSelection)
         # composer
         self.composer = QComposer(self, tabWd, self.collectionSelector, actor, proxyActor)
+
+
+class QuestTab(QTab):
+
+    def __init__(self, tabHost, tabWd):
+        QTab.__init__(self, tabHost, tabWd)
+
+        self.questMan = QuestManager()
+        questTreeWd = tabWd.findChild(QTreeWidget, "quest_list")
+        self.setupQuestTree(self.questMan, questTreeWd)
+        self.questInsp = QQuestInspector(tabWd, questTreeWd)
+
+    def setupQuestTree(self, questMan, treeWd):
+        activeRoot = QTreeWidgetItem(treeWd, [StrUtil.tStr(StrUtil.QUEST_ACTIVE)])
+        for q in questMan.activeQuests:
+            item = QTreeWidgetItem(activeRoot, [StrUtil.tStr(q.getTitle())])
+            item.setData(0, Qt.UserRole, (q,))
+        completedRoot = QTreeWidgetItem(treeWd, [StrUtil.tStr(StrUtil.QUEST_COMPLETED)])
+        for q in questMan.finishedQuests:
+            item = QTreeWidgetItem(completedRoot, [StrUtil.tStr(q.getTitle())])
+            item.setData(0, Qt.UserRole, (q,))
+        treeWd.expandItem(activeRoot)

@@ -17,9 +17,10 @@ class BaseItem(object):
         return [StrUtil.ITEM_ATTR_CLASS,
                 StrUtil.ITEM_ATTR_NAME,
                 StrUtil.ITEM_ATTR_RANK,
-                StrUtil.ITEM_ATTR_VALUE]
+                StrUtil.ITEM_ATTR_VALUE,
+                StrUtil.ITEM_ATTR_RARITY]
 
-    def __init__(self, id, name, className, description, rank, value, imgPath):
+    def __init__(self, id, name, className, description, rank, value, rarity, imgPath):
         self.id = id
         self.name = name
         self.description = description
@@ -27,6 +28,7 @@ class BaseItem(object):
         self.value = value
         self.imgPath = imgPath
         self.className = className
+        self.rarity = rarity
 
     # Can this item be shown in a ui inspector
     def getData(self, attrStrId, role):
@@ -39,6 +41,8 @@ class BaseItem(object):
                 return tStr(self.rank.name)
             elif attrStrId == StrUtil.ITEM_ATTR_VALUE:
                 return StrUtil.fMoneyStr(self.value)
+            elif attrStrId == StrUtil.ITEM_ATTR_RARITY:
+                return str(self.rarity)
         elif role == SORTING_ROLE:
             if attrStrId == StrUtil.ITEM_ATTR_CLASS:
                 return self.className
@@ -48,6 +52,8 @@ class BaseItem(object):
                 return self.rank.rankIndex
             elif attrStrId == StrUtil.ITEM_ATTR_VALUE:
                 return self.value
+            elif attrStrId == StrUtil.ITEM_ATTR_RARITY:
+                return self.rarity
         elif role == DATA_ROLE:
             if attrStrId == StrUtil.ITEM_ATTR_CLASS:
                 return self.className
@@ -57,6 +63,8 @@ class BaseItem(object):
                 return self.rank
             elif attrStrId == StrUtil.ITEM_ATTR_VALUE:
                 return self.value
+            elif attrStrId == StrUtil.ITEM_ATTR_RARITY:
+                return self.rarity
         return None
 
     def canBeInspected(self):
@@ -90,12 +98,12 @@ class BaseItem(object):
             else:
                 uiFactory.beginHorizontal()
                 uiFactory.spinBox(amount, 1, max)
-                uiFactory.label("/{}".format(max))
+                uiFactory.label("of {}".format(max))
                 uiFactory.endHorizontal()
         else:
             uiFactory.beginHorizontal()
             uiFactory.spinBox(amount, 1, max)
-            uiFactory.label("({}-{})".format(min, max))
+            uiFactory.label("({} to {})".format(min, max))
             uiFactory.endHorizontal()
 
     def __str__(self):
@@ -107,10 +115,10 @@ class BaseItem(object):
 
 class LootBox(BaseItem):
 
-    def __init__(self, id, name, className, description, rank, value, imgPath,
+    def __init__(self, id, name, className, description, rank, value, rarity, imgPath,
                  minItemDrop, maxItemDrop, probFuncFalloff, probFuncOrign, probFuncHeight,
                  probFuncCutOffLeft, probFuncCutOffRight, itemDropProbList):
-        BaseItem.__init__(self, id, name, className, description, rank, value, imgPath)
+        super().__init__(id, name, className, description, rank, value, rarity, imgPath)
         self.minItemDrop = minItemDrop
         self.maxItemDrop = maxItemDrop
         self.probFuncFalloff = probFuncFalloff
@@ -141,8 +149,8 @@ class LootBox(BaseItem):
 
 class ComposeableItem(BaseItem):
 
-    def __init__(self, id, name, className, description, rank, value, imgPath):
-        BaseItem.__init__(self, id, name, className, description, rank, value, imgPath)
+    def __init__(self, id, name, className, description, rank, value, rarity, imgPath):
+        BaseItem.__init__(self, id, name, className, description, rank, value, rarity, imgPath)
         self.canBeRoot = False
         self.allowAutoFill = False
 
@@ -167,9 +175,9 @@ class ComposeableItem(BaseItem):
 
 class Recipe(ComposeableItem):
 
-    def __init__(self, id, name, className, description, rank, value, imgPath,
+    def __init__(self, id, name, className, description, rank, value, rarity, imgPath,
                  requiredAItems, resultingAItems):
-        ComposeableItem.__init__(self, id, name, className, description, rank, value, imgPath)
+        ComposeableItem.__init__(self, id, name, className, description, rank, value, rarity, imgPath)
         if type(requiredAItems) == list:
             requiredAItems = fromList(requiredAItems)
         if type(resultingAItems) == list:
@@ -216,9 +224,9 @@ class Recipe(ComposeableItem):
 
 class JeagerFrame(ComposeableItem):
 
-    def __init__(self, id, name, className, description, rank, value, imgPath,
+    def __init__(self, id, name, className, description, rank, value, rarity, imgPath,
                  requiredTypes, allowedTypes):
-        ComposeableItem.__init__(self, id, name, className, description, rank, value, imgPath)
+        ComposeableItem.__init__(self, id, name, className, description, rank, value, rarity, imgPath)
         if type(requiredTypes) == list:
             requiredTypes = fromList(requiredTypes)
         self.requiredTypes = requiredTypes  # Alist with type, amount. Valid frame needs atleast the amount of type

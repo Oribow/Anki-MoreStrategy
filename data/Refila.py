@@ -142,14 +142,14 @@ class StrCompFilter (object):
 
 def createStrUtilRegex (prefix):
     r = r"("
-    for k, v in StrUtil.__dict__.iteritems():
+    for k, v in StrUtil.__dict__.items():
         
         if k.startswith(prefix):
             r += tStr(v)+"|"
     if r != "":
         r = r[:-1]
     r+=")"
-    print r
+    print (r)
     return r
 
 """
@@ -197,7 +197,7 @@ def t_RANK (t):
         if r.name == i:
             t.value = r.rankIndex
             return t
-    print "No match for "+t.value
+    print ("No match for "+t.value)
     return t
 
 def t_STRING (t):

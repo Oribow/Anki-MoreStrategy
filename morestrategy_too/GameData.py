@@ -4,12 +4,10 @@ Created on Dec 19, 2017
 @author: Oribow
 '''
 from data.StrUtil import tStr
-from PyQt4.Qt import QObject
-from PyQt4.QtCore import pyqtSignal
+from PyQt5.QtCore import pyqtSignal, QObject
 import random
 from data.Items import items
 from data.ItemTemplates import LootBox
-from __builtin__ import issubclass
 from morestrategy_too.AmountList import AmountItem
 
 
@@ -33,7 +31,6 @@ class Actor(QObject):
     moneyChanged = pyqtSignal(int)
 
     studyingDropRate = 30
-    lootRank = 1
 
     def __init__(self, name, rank, money, ownedItems):
         QObject.__init__(self)
@@ -46,7 +43,7 @@ class Actor(QObject):
         for iCard in range(0, studiedCards):
             if random.random() * 100 >= 100 - self.studyingDropRate:
                 # drop a box
-                x = self.lootRank + random.random() - 0.5
+                x = 1 + random.random() - 0.5
                 boxesThatMatter = []
                 sum = 0
                 for item in items:

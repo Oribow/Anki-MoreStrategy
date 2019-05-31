@@ -3,8 +3,8 @@ Created on Dec 22, 2017
 
 @author: Oribow
 '''
-from PyQt4.Qt import QAbstractItemView, QMenu, pyqtSignal
-from PyQt4.QtCore import Qt
+from PyQt5.Qt import QAbstractItemView, QMenu
+from PyQt5.QtCore import Qt, pyqtSignal
 from data import Refila
 from morestrategy_too.Game import Game
 

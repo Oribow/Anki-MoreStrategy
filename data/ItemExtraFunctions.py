@@ -13,7 +13,7 @@ def makeRecipe(aItem, actor):
 
 
 def openLootBox(aItem, actor):
-    actor.startBatch()
+    actor.ownedItems.startBatch()
     for i in range(aItem.amount):
         item = aItem.item
         itemCount = random.randint(item.minItemDrop, item.maxItemDrop)
@@ -22,4 +22,4 @@ def openLootBox(aItem, actor):
             actor.ownedItems.append(AmountItem(newItem, 1))
 
     actor.ownedItems.remove(aItem)
-    actor.endBatch()
+    actor.ownedItems.endBatch()

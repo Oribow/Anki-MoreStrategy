@@ -33,6 +33,7 @@ ITEM_ATTR_NAME = 13
 ITEM_ATTR_RANK = 14
 ITEM_ATTR_DESCRIPTION = 15
 ITEM_ATTR_VALUE = 16
+ITEM_ATTR_RARITY = 47
 ITEM_ATTR_IMG_PATH = 17
 ITEM_ATTR_REQ_ITEMS = 18
 ITEM_ATTR_RES_ITEMS = 19
@@ -55,6 +56,9 @@ RANK_COMMON = 10
 RANK_LUXURY = 11
 
 #quests
+QUEST_ACTIVE = 45
+QUEST_COMPLETED = 46
+
 QUEST_MORE_MUGS_TITLE = 41
 QUEST_MORE_MUGS_DESCRIPTION = 43
 QUEST_MORE_MUGS_TASKS_1_DESCRIPTION = 44
@@ -92,6 +96,7 @@ en_strs = {
     ITEM_ATTR_RANK: "Rank",
     ITEM_ATTR_DESCRIPTION: "Description",
     ITEM_ATTR_VALUE: "Value",
+    ITEM_ATTR_RARITY: "Rarity",
     ITEM_ATTR_IMG_PATH: "Image Path",
     ITEM_ATTR_REQ_ITEMS: {MOD_SINGULAR: "Required Item", MOD_PLURAL: "Required Items"},
     ITEM_ATTR_RES_ITEMS: {MOD_SINGULAR: "Resulting Item", MOD_PLURAL: "Resulting Items"},
@@ -107,6 +112,8 @@ en_strs = {
     ITEM_FUNC_OPEN: "Open",
     ITEM_FUNC_SELL_ALL: "Sell All",
     #quests
+    QUEST_ACTIVE: "Active",
+    QUEST_COMPLETED: "Completed",
     QUEST_MORE_MUGS_DESCRIPTION: "I need a Birthday present for my Sister. I think 6 Mugs would do the trick! Could you collect them for me please?",
     QUEST_MORE_MUGS_TITLE: "Birthday Mugs",
     QUEST_MORE_MUGS_TASKS_1_DESCRIPTION: "Collect 6 Mugs"
@@ -141,7 +148,7 @@ def tStr (index, modifier = MOD_SINGULAR):
 def toIndex (string):
     i = next((k for k, v in strs.iteritems() if v == string), -1)
     if i == -1:
-        print "Couldn't match string "+str
+        print ("Couldn't match string "+str)
     return i
 
 def fMoneyStr (money):

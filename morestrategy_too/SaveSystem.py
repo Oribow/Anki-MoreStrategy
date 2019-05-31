@@ -3,12 +3,11 @@ Created on Dec 19, 2017
 
 @author: Oribow
 '''
-from PyQt4.QtCore import pyqtSignal
+from PyQt5.QtCore import pyqtSignal, QObject
 import pickle
 from data.AssetUtil import savePathToAbs, savePath
 from morestrategy_too.GameData import Actor
 from morestrategy_too.AmountList import AmountList
-from PyQt4.Qt import QObject
 from os.path import isfile, join
 import os
 from datetime import datetime
@@ -67,7 +66,7 @@ class SavingSystem(QObject):
             saveData = {}
             self.onSave.emit(saveData)
             pickle.dump(saveData, f)
-            print "Saved!"
+            print ("Saved!")
 
     def load(self):
         saveData = {}
@@ -75,10 +74,10 @@ class SavingSystem(QObject):
             with open(savePathToAbs(self.fileName), "rb") as f:
                 saveData = pickle.load(f)
         except:
-            print "Error while loading"
+            print ("Error while loading")
 
         self.onLoad.emit(saveData)
-        print "Loaded!"
+        print ("Loaded!")
         self.cachedSaveData = saveData
 
     def discardDataCache(self):

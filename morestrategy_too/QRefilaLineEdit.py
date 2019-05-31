@@ -3,8 +3,8 @@ Created on Dec 22, 2017
 
 @author: Oribow
 '''
-from PyQt4.Qt import QCompleter
-from PyQt4.QtCore import Qt
+from PyQt5.Qt import QCompleter
+from PyQt5.QtCore import Qt
 from data import Refila
 from data.Refila import ItemFilterJoin
 
@@ -27,7 +27,7 @@ class QRefilaLineEdit (object):
             return
         filter = Refila.parser.parse(text, debug=True)
         if filter == None:
-            print "Parsing failed!"
+            print ("Parsing failed!")
 
         self.collectionSelector.updateFilter(filter)
         

@@ -1,8 +1,8 @@
 from data.StrUtil import tStr
 from data.AssetUtil import resPathToAbs
-from PyQt4.Qt import QLabel, QPushButton, QWidget, QHBoxLayout, QVBoxLayout, \
-    QFormLayout, QSizePolicy, QPixmap, QSpinBox, QLayout
-from PyQt4.QtCore import Qt
+from PyQt5.Qt import QLabel, QPushButton, QWidget, QHBoxLayout, QVBoxLayout, \
+    QFormLayout, QSizePolicy, QPixmap, QSpinBox, QLayout, QScrollArea, QFrame
+from PyQt5.QtCore import Qt
 
 
 class QUIFactory(object):
@@ -14,9 +14,15 @@ class QUIFactory(object):
         self.layoutStack = [self.rootWidget.layout()]
         self.fillCompCache()
 
+    def endUI(self):
+        self.rootWidget.updateGeometry()
+        self.rootWidget = None
+        self.compCache = []
+        self.layoutStack = []
+
     def clearUI(self, layout=None):
-        if layout == None:
-            if len(self.layoutStack) == None:
+        if layout is None:
+            if len(self.layoutStack) == 0:
                 return
             layout = self.layoutStack[0]
 
@@ -43,7 +49,7 @@ class QUIFactory(object):
             if issubclass(t, QWidget):
                 self.rootWidget.layout().removeWidget(child)
                 child.hide()
-            #child.setParent(None)
+            # child.setParent(None)
             if t in self.CompTypesToCache:
                 if t in self.compCache:
                     self.compCache[t].append(child)
@@ -60,13 +66,13 @@ class QUIFactory(object):
             if issubclass(t, QWidget):
                 layoutHolder.layout().removeWidget(child)
                 child.hide()
-            #child.setParent(None)
+            # child.setParent(None)
             if t in self.CompTypesToCache:
                 if t in self.compCache:
                     self.compCache[t].append(child)
                 else:
                     self.compCache[t] = [child]
-        #if layoutHolder.layout() is not None:
+        # if layoutHolder.layout() is not None:
         #    layoutHolder.layout().setParent(None)
 
     def image(self, pathToImg, **options):
@@ -75,6 +81,7 @@ class QUIFactory(object):
 
     def __mkImage(self, pathToImg, options={}):
         imgView = self.makeWidget(QLabel)
+        imgView.setAlignment(options.get("alignment", Qt.AlignLeft | Qt.AlignVCenter))
         imgView.setPixmap(QPixmap(resPathToAbs(pathToImg)))
         imgView.setFixedSize(options.get("width", 50), options.get("height", 50))
         imgView.setScaledContents(options.get("scaledContents", True))
@@ -101,6 +108,7 @@ class QUIFactory(object):
         label.setWordWrap(options.get("wordWrap", True))
         label.setAlignment(options.get("alignment", Qt.AlignLeft | Qt.AlignVCenter))
         label.setSizePolicy(*options.get("sizePolicy", (QSizePolicy.Preferred, QSizePolicy.Preferred)))
+        label.setFrameStyle(options.get("frameStyle", QFrame.NoFrame))
         f = label.font()
         f.setPointSize(options.get("fontSize", 11))
         label.setFont(f)
@@ -169,6 +177,9 @@ class QUIFactory(object):
         if type(v) != QVBoxLayout:
             raise Exception("Tried to end layout, wrong layout on top of stack!")
 
+    def makeScrollArea(self, **options):
+        QScrollArea(self.layoutStack[-1].parentWidget())
+
     def __beginFormLayout(self):
         widget = QWidget()
         f = QFormLayout()
@@ -187,11 +198,11 @@ class QUIFactory(object):
             lst = self.compCache[wdType]
             if len(lst) == 1:
                 self.compCache.pop(wdType)
-            print "Reused cached comp for: " + str(wdType)
+            print ("Reused cached comp for: " + str(wdType))
             widget = lst.pop()
             widget.show()
         else:
-            print "Couldnt find {} in cache".format(wdType)
+            print ("Couldnt find {} in cache".format(wdType))
             widget = wdType(*args)
         return widget
 
@@ -202,18 +213,16 @@ class ItemInspectorUIFactory(QUIFactory):
         self.extraFuncClickedSlot = extraFuncClickedSlot
 
     def header(self, rank, headline, imgPath):
-        self.beginHorizontal()
         self.beginVertical()
         self.rank(rank)
         self.headline(headline)
-        self.endVertical()
         self.image(imgPath)
-        self.endHorizontal()
+        self.endVertical()
 
     def extraFuncButtons(self, item):
         self.beginHorizontal()
         funcs = item.getExtraFunctionality()
-        for k, v in funcs.iteritems():
+        for k, v in funcs.items():
             self.button(k, clickedSlot=(lambda f: lambda: self.extraFuncClickedSlot(f))(v))
         self.endHorizontal()
 
@@ -254,9 +263,52 @@ class ComposerItemUIFactory(QUIFactory):
         v = self.layoutStack.pop()
         if type(v) != QVBoxLayout:
             raise Exception("Tried to end layout, wrong layout on top of stack!")
+        self.endUI()
 
     def label(self, text, **options):
         QUIFactory.label(self, text, maxTextWidth=self.itemSize - 4)
 
     def image(self, pathToImg, **options):
         QUIFactory.image(self, pathToImg, width=self.itemSize / 3, height=self.itemSize / 3)
+
+
+class QuestUIFactory(QUIFactory):
+    pass
+
+    def title(self, text):
+        self.label(text, fontSize=30)
+
+    def tasks(self, tasks):
+        self.beginVertical()
+        # self.makeScrollArea()
+        for t in tasks:
+            self.label("\xe2   " + t.getTaskString())
+        self.endVertical()
+
+    def dialog(self, speaker, texts):
+        self.beginHorizontal()
+        if speaker.textAlign == Qt.AlignRight:
+
+            self.beginVertical()
+            for t in texts:
+                self.label(t, alignment=speaker.textAlign | Qt.AlignVCenter, sizePolicy=(QSizePolicy.Expanding, QSizePolicy.Preferred), frameStyle=QFrame.Panel|QFrame.Sunken)
+            self.space()
+            self.endVertical()
+            self.beginVertical()
+            self.image(speaker.pathToAvatar, width=50, height=50, alignment=Qt.AlignLeft | Qt.AlignTop)
+            self.label(speaker.name, alignment=Qt.AlignHCenter | Qt.AlignTop)
+            self.space()
+            self.endVertical()
+        else:
+            self.beginVertical()
+            self.image(speaker.pathToAvatar, width=50, height=50, alignment=Qt.AlignLeft | Qt.AlignTop)
+            self.label(speaker.name, alignment=Qt.AlignHCenter | Qt.AlignTop)
+            self.space()
+            self.endVertical()
+            self.beginVertical()
+            for t in texts:
+                self.label(t, alignment=speaker.textAlign | Qt.AlignVCenter, sizePolicy=(QSizePolicy.Expanding, QSizePolicy.Preferred), frameStyle=QFrame.Panel|QFrame.Sunken)
+            self.space()
+            self.endVertical()
+
+        self.endHorizontal()

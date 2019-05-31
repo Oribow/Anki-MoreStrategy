@@ -10,7 +10,7 @@ homePath = os.path.dirname(os.path.abspath(__file__))
 resPath = os.path.join(homePath, "Resources")
 uiPath = os.path.join(homePath, "UI")
 savePath = os.path.join(homePath, "Saves")
-print "Path: " + homePath
+print ("Path: " + homePath)
 
 
 def relPathToAbs(path):

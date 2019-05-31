@@ -4,7 +4,7 @@ Created on Dec 18, 2017
 @author: Oribow
 '''
 
-from PyQt4.Qt import pyqtSignal, QObject
+from PyQt5.QtCore import pyqtSignal, QObject
 
 
 class AmountItem(object):
@@ -31,6 +31,7 @@ class AmountList(QObject):
     CHANGE_AMOUNT, CHANGE_REMOVED, CHANGE_APPEND, CHANGE_COMPLETELY = range(4)
 
     aItemChanged = pyqtSignal(list)
+    afterAItemChanged = pyqtSignal()
 
     def __init__(self, aItemList=None):
         QObject.__init__(self)
@@ -132,12 +133,14 @@ class AmountList(QObject):
         if len(self.batch) == 0:
             return
         self.aItemChanged.emit(self.batch)
+        self.afterAItemChanged.emit()
         self.batch = []
 
     def clearBatch(self):
         self.shouldBatch = False
         self.batch = []
         self.aItemChanged.emit([self.CHANGE_COMPLETELY])
+        self.afterAItemChanged.emit()
 
     def registerChange(self, aItem, changeCode):
         if self.shouldBatch:
@@ -150,6 +153,7 @@ class AmountList(QObject):
             self.batch.append((aItem, changeCode))
         else:
             self.aItemChanged.emit([(aItem, changeCode)])
+            self.afterAItemChanged.emit()
 
     def __getstate__(self):
         return (self.aItemList, )

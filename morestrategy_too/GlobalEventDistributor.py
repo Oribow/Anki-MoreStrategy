@@ -1,16 +1,24 @@
 from morestrategy_too.Game import Game
 
-gameData = Game.game.gameData
+
 # register/unregister slots
 
 # slot needs to take a batch
 def cPlayerActorsItemsChanged(slot):
-    gameData.playerActor.ownedItems.aItemsChanged.connect(slot)
+    Game.game.gameData.playerActor.ownedItems.aItemChanged.connect(slot)
 
 
 def dPlayerActorsItemsChanged(slot):
-    gameData.playerActor.ownedItems.aItemsChanged.disconnect(slot)
+    Game.game.gameData.playerActor.ownedItems.aItemChanged.disconnect(slot)
 
 
 def composerCreatedItem(slot):
     pass
+
+
+def cAfterPlayerActorsItemsChanged(slot):
+    Game.game.gameData.playerActor.ownedItems.afterAItemChanged.connect(slot)
+
+
+def dAfterPlayerActorsItemsChanged(slot):
+    Game.game.gameData.playerActor.ownedItems.afterAItemChanged.disconnect(slot)

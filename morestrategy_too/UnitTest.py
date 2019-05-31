@@ -3,10 +3,10 @@ Created on Dec 14, 2017
 
 @author: Oribow
 '''
-from PyQt4.Qt import QApplication
+from PyQt5.Qt import QApplication
 from data import Items
 from data.AssetUtil import uiPathToAbs
-from PyQt4 import uic
+from PyQt5 import uic
 from morestrategy_too.Game import Game
 from morestrategy_too.GameData import Actor
 from data.Ranks import RankHolder as Ranks

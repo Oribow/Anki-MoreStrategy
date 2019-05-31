@@ -3,9 +3,9 @@ Created on Dec 16, 2017
 
 @author: Oribow
 '''
-from PyQt4.Qt import QAbstractTableModel, QModelIndex, QVariant, QSortFilterProxyModel, \
-    QMenu, pyqtSignal, QTableView, QObject
-from PyQt4.QtCore import Qt
+from PyQt5.Qt import  \
+    QMenu, QTableView
+from PyQt5.QtCore import Qt, pyqtSignal, QAbstractTableModel, QModelIndex, QVariant, QSortFilterProxyModel, QObject
 from data.StrUtil import tStr
 from data import StrUtil, ItemTemplates
 from morestrategy_too.AmountList import AmountList, AmountItem
@@ -149,7 +149,6 @@ class ItemTableModel(QAbstractTableModel):
                     self.filteredAItemList.aItemList.append(i)
 
         self.updateColumns()
-        self.reset()
         self.endResetModel()
 
     def reapplyFilter(self):

@@ -5,7 +5,7 @@ Created on Dec 14, 2017
 '''
 import os
 
-# path pointing to project folder in which UnitTest.py is located
+# path pointing to project folder in which FunctionalityTests.py is located
 homePath = os.path.dirname(os.path.abspath(__file__))
 resPath = os.path.join(homePath, "Resources")
 uiPath = os.path.join(homePath, "UI")

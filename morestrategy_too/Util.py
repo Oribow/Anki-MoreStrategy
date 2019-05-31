@@ -1,6 +1,6 @@
 from random import choice
 from data.AssetUtil import resPathToAbs
-from PyQt4.QtGui import QMessageBox
+from PyQt5.QtWidgets import QMessageBox
 
 def showMessage (text):
     msgBox = QMessageBox( )

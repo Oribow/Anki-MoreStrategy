@@ -29,7 +29,7 @@ def downloadHTMLFile (url, hasToStartWith):
                 nv = lll.nodeValue
                 if "(" in lll.nodeValue:
                     nv = lll.nodeValue[:lll.nodeValue.find("(") - 1]
-                    print "----->"+nv
+                    print("----->"+nv)
                 
                 resultList.append(nv)
                 print(lll.nodeValue)
@@ -46,8 +46,8 @@ def downloadAlphaSites (baseUrl):
             
         except ZeroDivisionError:
             e = sys.exc_info()[0]
-            print "There was an exception!"
-            print e
+            print("There was an exception!")
+            print(e)
         sleep(5)
     return result
 

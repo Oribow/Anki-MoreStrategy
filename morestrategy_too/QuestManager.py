@@ -1,7 +1,8 @@
-from PyQt5.Qt import QWidget, QMainWindow, QLabel, QGraphicsView, QTableView, \
-    QTabWidget, QStandardItemModel
+from PyQt5.QtWidgets import QWidget, QMainWindow, QLabel, QGraphicsView, QTableView, \
+    QTabWidget
+from PyQt5.QtGui import QStandardItemModel
 from PyQt5.QtCore import Qt
-from QUIFactory import QuestUIFactory
+from morestrategy_too.QUIFactory import QuestUIFactory
 from data.StrUtil import tStr
 from data.Quests import quests
 from data.QuestTemplates import BaseQuest
@@ -83,11 +84,11 @@ class QQuestInspector(object):
 
     def selectedQuestChanged(self, currentIndex, prevIndex):
         treeItem = self.questTreeWd.currentItem()
-        if treeItem is None:
+        if treeItem is None or treeItem.data(0, Qt.UserRole) is None:
             self.currentQuest = None
         else:
-            self.currentQuest = treeItem.data(0, Qt.UserRole).toPyObject()[0]
-        self.currentQuest.uiNeedsUpdate.connect(self.updateUIForCQuest)
+            self.currentQuest = treeItem.data(0, Qt.UserRole)[0]
+            self.currentQuest.uiNeedsUpdate.connect(self.updateUIForCQuest)
         self.updateUIForCQuest()
 
     def updateUIForCQuest(self):
